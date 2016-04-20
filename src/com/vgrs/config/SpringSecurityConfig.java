@@ -9,14 +9,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.inMemoryAuthentication().withUser("admin").password("password")
-				.roles("USER");
+		auth.inMemoryAuthentication().withUser("admin").password("password").roles("USER");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
-		http.authorizeRequests().antMatchers("/account/**").permitAll()
+		http.authorizeRequests()
+				.antMatchers("/account/**").permitAll()
 				.antMatchers("/vgrs/**").access("hasRole('ROLE_USER')").and()
 				.formLogin().and().httpBasic();
 		// @formatter:on
