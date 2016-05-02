@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class GameListController {
 
-	@RequestMapping("home/gamelist")
+	@RequestMapping("game/gamelist")
 	public String fetchGameListView() {
 		return "gamelistView";
 	}

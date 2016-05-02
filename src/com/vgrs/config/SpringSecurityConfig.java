@@ -6,6 +6,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+
+import com.vgrs.config.security.CsrfHeaderFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -23,9 +28,18 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/home/**").permitAll()
 				.antMatchers("/account/**").permitAll()
-				.antMatchers("/vgrs/**").access("hasRole('ROLE_USER')")
+				.antMatchers("/game/**").access("hasRole('ROLE_USER')")
 				.and().httpBasic()
-				.and().formLogin().loginPage("/account/login");
+				.and().formLogin().loginPage("/account/login.do")
+				.usernameParameter("username").passwordParameter("password")
+				.and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
+				.csrf().csrfTokenRepository(csrfTokenRepository());
 		// @formatter:on
 	}
+	
+	private CsrfTokenRepository csrfTokenRepository() {
+		  HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+		  repository.setHeaderName("X-XSRF-TOKEN");
+		  return repository;
+		}
 }
