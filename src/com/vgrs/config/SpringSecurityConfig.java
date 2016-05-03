@@ -11,15 +11,16 @@ import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 import com.vgrs.config.security.CsrfHeaderFilter;
+import com.vgrs.config.security.CustomUserDetailService;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
-	public void configAuthentication(AuthenticationManagerBuilder auth)
-			throws Exception {
+	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("admin").password("password").roles("USER");
+		auth.userDetailsService(new CustomUserDetailService());
 	}
 
 	@Override
@@ -36,10 +37,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 				.csrf().csrfTokenRepository(csrfTokenRepository());
 		// @formatter:on
 	}
-	
+
 	private CsrfTokenRepository csrfTokenRepository() {
-		  HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-		  repository.setHeaderName("X-XSRF-TOKEN");
-		  return repository;
-		}
+		HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+		repository.setHeaderName("X-XSRF-TOKEN");
+		return repository;
+	}
 }

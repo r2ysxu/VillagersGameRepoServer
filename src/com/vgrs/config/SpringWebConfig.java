@@ -1,5 +1,7 @@
 package com.vgrs.config;
 
+import java.sql.SQLException;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +10,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import com.vgrs.dao.AccountDAO;
+import com.vgrs.dao.impl.SQLAccountDAO;
 
 @EnableWebMvc
 @Configuration
@@ -24,4 +29,13 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 		return viewResolver;
 	}
 	
+	@Bean
+	public AccountDAO accountDAO() {
+		try {
+			return new SQLAccountDAO();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

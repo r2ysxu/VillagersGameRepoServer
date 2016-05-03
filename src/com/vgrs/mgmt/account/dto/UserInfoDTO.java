@@ -1,10 +1,25 @@
 package com.vgrs.mgmt.account.dto;
 
 public class UserInfoDTO {
+
 	private String username;
 	private String password;
 	private String email;
 	private String name;
+	private String role;
+	private String status;
+
+	public UserInfoDTO() {
+	}
+
+	public UserInfoDTO(String username, String password, String email, String name, String role, String status) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.name = name;
+		this.role = role;
+		this.status = status;
+	}
 
 	public String getUsername() {
 		return username;
@@ -38,7 +53,23 @@ public class UserInfoDTO {
 		this.name = name;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public String toString() {
-		return username + " = (" + name + ", " + email + ")";
+		return username + " = (" + name + ", " + email + ", " + role + ")";
 	}
 }
