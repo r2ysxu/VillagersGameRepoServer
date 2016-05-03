@@ -5,8 +5,8 @@
 <html ng-app="vgrsViewApp">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<script type="text/javascript" src="../lib/angular.min.js"></script>
-	<script type="text/javascript" src="scripts/controllers/loginController.js"></script>
+	<script type="text/javascript" src="/VillagersGameRepoServer/lib/angular.min.js"></script>
+	<script type="text/javascript" src="/VillagersGameRepoServer/scripts/controllers/loginController.js"></script>
 	<title>Login Page</title>
 </head>
 <body ng-controller="LoginViewController">
