@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.vgrs.dao.AccountDAO;
 import com.vgrs.mgmt.account.dto.UserInfoDTO;
+import com.vgrs.mgmt.dao.AccountDAO;
 
 @Controller
 public class AccountController {

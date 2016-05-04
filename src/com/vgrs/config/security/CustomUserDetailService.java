@@ -12,9 +12,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.vgrs.dao.AccountDAO;
-import com.vgrs.dao.impl.SQLAccountDAO;
 import com.vgrs.mgmt.account.dto.UserInfoDTO;
+import com.vgrs.mgmt.dao.AccountDAO;
+import com.vgrs.mgmt.dao.impl.SQLAccountDAO;
 
 public class CustomUserDetailService implements UserDetailsService {
 

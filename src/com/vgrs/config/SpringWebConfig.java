@@ -11,8 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import com.vgrs.dao.AccountDAO;
-import com.vgrs.dao.impl.SQLAccountDAO;
+import com.vgrs.mgmt.dao.AccountDAO;
+import com.vgrs.mgmt.dao.impl.SQLAccountDAO;
 
 @EnableWebMvc
 @Configuration

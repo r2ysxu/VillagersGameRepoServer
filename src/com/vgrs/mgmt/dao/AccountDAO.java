@@ -1,4 +1,4 @@
-package com.vgrs.dao;
+package com.vgrs.mgmt.dao;
 
 import java.sql.SQLException;
 

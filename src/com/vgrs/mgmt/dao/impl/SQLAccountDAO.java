@@ -1,4 +1,4 @@
-package com.vgrs.dao.impl;
+package com.vgrs.mgmt.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import com.vgrs.dao.AccountDAO;
-import com.vgrs.dao.SQLConnector;
 import com.vgrs.mgmt.account.dto.UserInfoDTO;
+import com.vgrs.mgmt.dao.AccountDAO;
+import com.vgrs.mgmt.dao.SQLConnector;
 
 public class SQLAccountDAO implements AccountDAO {
 
