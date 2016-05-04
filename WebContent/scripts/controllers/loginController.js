@@ -9,13 +9,13 @@ albumApp.controller('LoginViewController', ['$scope','$http', '$location', funct
 		var creds = $scope.rgdata;
 		
 		$http.post('register.do', { 
-				"username" : creds.username,
-				"password" : creds.password,
-				"email": creds.email,
-				"name" : creds.name
-			}).then(function successCallback(response) {
+			"username" : creds.username,
+			"password" : creds.password,
+			"email": creds.email,
+			"name" : creds.name
+		}).then(function successCallback(response) {
 				$location.path("/home.do")
-			}, function errorCallback(response) {});
+		}, function errorCallback(response) {});
 	}
 	
 	$scope.validateUser = function() {
