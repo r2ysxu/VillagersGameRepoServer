@@ -36,18 +36,10 @@
 		<fieldset>
 			<legend>Registration</legend>
 			
-			<form name="registerForm" action="" method="GET" ng-submit="validateRegister()" >
-				<div ng-messages="registerForm.usernameReg.$error" role="alert">
-			    	<div ng-message="required">Please enter a value for this field.</div>
-			    	<div ng-message="taken">Username already taken</div>
-			  	</div>
-			  	<div ng-messages="registerForm.passwordReg.$error" role="alert">
-			    	<div ng-message="required">Please enter a value for this field.</div>
-			    	<div ng-message="">Password must be at least 8 characters long</div>
-			  	</div>
-			  	
+			<form name="registerForm" ng-submit="validateRegister()" >
 		        <label for="usernameReg">Username</label>
-				<input type="text" id="usernameReg" ng-model="rgdata.username" required />
+				<input type="text" id="usernameReg" ng-model="rgdata.username"
+					ng-blur="validateUser()" required />
 		        <label for="passwordReg">Password</label>
 				<input type="password" id="passwordReg" ng-model="rgdata.password" minlength="8" required />
 		        <label for="passwordConfirmReg">Confirm Password</label>
