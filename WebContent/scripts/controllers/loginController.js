@@ -6,7 +6,6 @@ albumApp.controller('LoginViewController', ['$scope','$http', '$location', funct
 	$scope.rgdata = {};
 	
 	$scope.validateRegister = function() {
-		console.log("HERE");
 		var creds = $scope.rgdata;
 		
 		$http.post('register.do', { 
@@ -15,6 +14,7 @@ albumApp.controller('LoginViewController', ['$scope','$http', '$location', funct
 				"email": creds.email,
 				"name" : creds.name
 			}).then(function successCallback(response) {
+				$location.path("/home.do")
 			}, function errorCallback(response) {});
 	}
 	
@@ -23,7 +23,6 @@ albumApp.controller('LoginViewController', ['$scope','$http', '$location', funct
 		$http.get('userexist.do', { params : {
 			"username" : $scope.rgdata.username
 		}}).then( function successCallback(response) {
-			console.log(response); 
 			if (response.data.success) document.getElementById("usernameReg").setCustomValidity("Username already taken");
 			else document.getElementById("usernameReg").setCustomValidity('');
 		}, function errorCallback(response) {});

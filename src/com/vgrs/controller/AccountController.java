@@ -27,6 +27,11 @@ public class AccountController {
 
 	@Autowired
 	private AccountDAO accountDAO;
+	
+	@RequestMapping("/home")
+	public String fetchHomePage() {
+		return "index";
+	}
 
 	@RequestMapping("account/login")
 	public String fetchLoginPage(@RequestParam(value = "error", required = false) String error, Model model) {
